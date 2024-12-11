@@ -1,0 +1,96 @@
+.recommendations-section {
+  margin-top: 20px;
+}
+
+.recommendations-header {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.recommendations-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.recommendation-card {
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recommendation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.recommendation-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.recommendation-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.recommendation-title {
+  text-align: center;
+  font-size: 1.2rem; 
+  font-weight: bold; 
+  margin: 0 auto; 
+  line-height: 1.4; 
+  color: #333;
+}
+
+.recommendation-button {
+  display: block;
+  width: calc(100% - 30px);
+  margin: 10px auto;
+  padding: 12px 16px;
+  background-color: var(--button-background-color, #000000);
+  color: var(--button-text-color, #fff);
+  border: 1px solid transparent;
+  border-radius: var(--buttons-radius, 5px);
+  text-align: center;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: var(--font-body-family, Arial, sans-serif);
+  font-weight: var(--font-body-weight, 600);
+  letter-spacing: 0.05rem;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: var(--shadow-horizontal-offset, 0px) var(--shadow-vertical-offset, 3px) 
+              var(--shadow-blur-radius, 6px) rgba(0, 0, 0, 0.2);
+}
+
+.recommendation-button:hover {
+  background-color: var(--button-hover-background-color, #005bb5);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-horizontal-offset, 0px) var(--shadow-vertical-offset, 6px) 
+              var(--shadow-blur-radius, 8px) rgba(0, 0, 0, 0.3);
+}
+
+.recommendation-button:focus-visible {
+  outline: var(--focused-base-outline, 2px solid rgba(0, 0, 255, 0.5));
+  outline-offset: var(--focused-base-outline-offset, 4px);
+  box-shadow: var(--focused-base-box-shadow, 0 0 0 2px rgba(0, 0, 255, 0.3));
+}
+
+.recommendation-button:active {
+  transform: translateY(0px);
+  background-color: var(--button-active-background-color, #004494);
+}
+
+.recommendation-button[disabled] {
+  background-color: var(--button-disabled-background-color, #eaeaea);
+  color: var(--button-disabled-text-color, #aaa);
+  cursor: not-allowed;
+  box-shadow: none;
+}

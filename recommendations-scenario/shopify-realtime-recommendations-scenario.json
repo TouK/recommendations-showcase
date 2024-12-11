@@ -1,0 +1,462 @@
+{
+  "metaData" : {
+    "id" : "shopify-realtime-recommendations",
+    "additionalFields" : {
+      "description" : null,
+      "properties" : {
+        
+      },
+      "metaDataType" : "StreamMetaData",
+      "showDescription" : false
+    }
+  },
+  "nodes" : [
+    {
+      "id" : "Shopify Snowplow Events",
+      "ref" : {
+        "typ" : "kafka",
+        "parameters" : [
+          {
+            "name" : "Topic",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "'http.shopify-events'"
+            }
+          },
+          {
+            "name" : "Content type",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "'JSON'"
+            }
+          }
+        ]
+      },
+      "additionalFields" : {
+        "description" : "All the Snowplow events sent to our endpoint will land in the http.shopify-events Kafka topic. Here the topic acts as a scenario messages source.",
+        "layoutData" : {
+          "x" : 0,
+          "y" : 0
+        }
+      },
+      "type" : "Source"
+    },
+    {
+      "id" : "Extract Message Schema",
+      "varName" : "messageSchema",
+      "value" : {
+        "language" : "spel",
+        "expression" : "#input[\"message\"][\"schema\"].toString()"
+      },
+      "additionalFields" : {
+        "description" : null,
+        "layoutData" : {
+          "x" : 0,
+          "y" : 180
+        }
+      },
+      "type" : "Variable"
+    },
+    {
+      "nextFalse" : [
+      ],
+      "id" : "Validate Message Schema",
+      "expression" : {
+        "language" : "spel",
+        "expression" : "#messageSchema == \"iglu:com.snowplowanalytics.snowplow/payload_data/jsonschema/1-0-4\""
+      },
+      "isDisabled" : null,
+      "additionalFields" : {
+        "description" : null,
+        "layoutData" : {
+          "x" : 0,
+          "y" : 360
+        }
+      },
+      "type" : "Filter"
+    },
+    {
+      "id" : "Extract Viewed Product Event",
+      "varName" : "viewedProductEvent",
+      "value" : {
+        "language" : "spel",
+        "expression" : "#input[\"message\"][\"data\"].^[#this[\"e\"] == \"pv\"]"
+      },
+      "additionalFields" : {
+        "description" : null,
+        "layoutData" : {
+          "x" : 0,
+          "y" : 540
+        }
+      },
+      "type" : "Variable"
+    },
+    {
+      "nextFalse" : [
+      ],
+      "id" : "Validate Viewed Product Event",
+      "expression" : {
+        "language" : "spel",
+        "expression" : "#viewedProductEvent != null"
+      },
+      "isDisabled" : null,
+      "additionalFields" : {
+        "description" : null,
+        "layoutData" : {
+          "x" : 0,
+          "y" : 720
+        }
+      },
+      "type" : "Filter"
+    },
+    {
+      "id" : "Extract App ID",
+      "varName" : "snowplowTrackerAppId",
+      "value" : {
+        "language" : "spel",
+        "expression" : "#viewedProductEvent[\"aid\"]?.toString()"
+      },
+      "additionalFields" : {
+        "description" : null,
+        "layoutData" : {
+          "x" : 0,
+          "y" : 900
+        }
+      },
+      "type" : "Variable"
+    },
+    {
+      "nextFalse" : [
+      ],
+      "id" : "Validate App ID",
+      "expression" : {
+        "language" : "spel",
+        "expression" : "#snowplowTrackerAppId == \"shopify-nu-recommendations\""
+      },
+      "isDisabled" : null,
+      "additionalFields" : {
+        "description" : "We are interested only in events for AppId: shopify-nu-recommendations",
+        "layoutData" : {
+          "x" : 0,
+          "y" : 1080
+        }
+      },
+      "type" : "Filter"
+    },
+    {
+      "id" : "Extract Anonymous User ID",
+      "varName" : "anonymousUserId",
+      "value" : {
+        "language" : "spel",
+        "expression" : "#viewedProductEvent[\"duid\"]?.toString()"
+      },
+      "additionalFields" : {
+        "description" : "The \"duid\" value is an identifier saved in cookie. It persists the same during anonymous (or logged) session with the store.",
+        "layoutData" : {
+          "x" : 0,
+          "y" : 1260
+        }
+      },
+      "type" : "Variable"
+    },
+    {
+      "id" : "Extract Product Details",
+      "varName" : "product",
+      "fields" : [
+        {
+          "name" : "slug",
+          "expression" : {
+            "language" : "spel",
+            "expression" : "#viewedProductEvent[\"url\"]?.toString()?.startsWith(\"https://nsw9mj-j4.myshopify.com/products/\") \n         ? #viewedProductEvent[\"url\"]?.toString()?.substring(\"https://nsw9mj-j4.myshopify.com/products/\".length()) \n         : null"
+          }
+        },
+        {
+          "name" : "viewTimestamp",
+          "expression" : {
+            "language" : "spel",
+            "expression" : "#viewedProductEvent[\"dtm\"]?.toLong()"
+          }
+        }
+      ],
+      "additionalFields" : {
+        "description" : "Our ML model needs viewed products slugs and view timestamps",
+        "layoutData" : {
+          "x" : 0,
+          "y" : 1440
+        }
+      },
+      "type" : "VariableBuilder"
+    },
+    {
+      "nextFalse" : [
+      ],
+      "id" : "Validate Product Details",
+      "expression" : {
+        "language" : "spel",
+        "expression" : "#anonymousUserId != null &&\n#product.slug != null &&\n#product.viewTimestamp != null"
+      },
+      "isDisabled" : null,
+      "additionalFields" : {
+        "description" : null,
+        "layoutData" : {
+          "x" : 0,
+          "y" : 1620
+        }
+      },
+      "type" : "Filter"
+    },
+    {
+      "id" : "Aggregate Products for a Given User",
+      "outputVar" : "aggregatedProducts",
+      "nodeType" : "aggregate-sliding",
+      "parameters" : [
+        {
+          "name" : "groupBy",
+          "expression" : {
+            "language" : "spel",
+            "expression" : "{ #anonymousUserId }.toString"
+          }
+        },
+        {
+          "name" : "aggregator",
+          "expression" : {
+            "language" : "spel",
+            "expression" : "#AGG.map({\n           slugs: #AGG.list,\n  viewTimestamps: #AGG.list\n})"
+          }
+        },
+        {
+          "name" : "aggregateBy",
+          "expression" : {
+            "language" : "spel",
+            "expression" : "{\n           slugs: #product.slug,\n  viewTimestamps: #product.viewTimestamp\n}"
+          }
+        },
+        {
+          "name" : "windowLength",
+          "expression" : {
+            "language" : "spel",
+            "expression" : "T(java.time.Duration).parse('PT5M')"
+          }
+        },
+        {
+          "name" : "emitWhenEventLeft",
+          "expression" : {
+            "language" : "spel",
+            "expression" : "false"
+          }
+        }
+      ],
+      "additionalFields" : {
+        "description" : "In this step we add current product to aggregated products list for the user identified by anonymousUserId",
+        "layoutData" : {
+          "x" : 0,
+          "y" : 1800
+        }
+      },
+      "type" : "CustomNode"
+    },
+    {
+      "id" : "Infer Recommendations",
+      "service" : {
+        "id" : "azuredatabricks-mlflow",
+        "parameters" : [
+          {
+            "name" : "Model",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "'slirec_shopify_model'"
+            }
+          },
+          {
+            "name" : "Version",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "'1'"
+            }
+          },
+          {
+            "name" : "Raw editor",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "false"
+            }
+          },
+          {
+            "name" : "userId",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "#anonymousUserId"
+            }
+          },
+          {
+            "name" : "items",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "#aggregatedProducts.slugs"
+            }
+          },
+          {
+            "name" : "timestamps",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "#aggregatedProducts.viewTimestamps.![#this.toString()]"
+            }
+          }
+        ]
+      },
+      "output" : "recommendationsModelOutput",
+      "additionalFields" : {
+        "description" : "This step is ML model inference. We pass viewed aggregated products slugs as items and aggregated product view timestamps in context of the user identified by the anonymousUserId.",
+        "layoutData" : {
+          "x" : 0,
+          "y" : 1980
+        }
+      },
+      "type" : "Enricher"
+    },
+    {
+      "id" : "Limit Recommendations",
+      "varName" : "recommendationIds",
+      "value" : {
+        "language" : "spel",
+        "expression" : "#COLLECTION.take(#recommendationsModelOutput.itemIds, 10)"
+      },
+      "additionalFields" : {
+        "description" : null,
+        "layoutData" : {
+          "x" : 0,
+          "y" : 2160
+        }
+      },
+      "type" : "Variable"
+    },
+    {
+      "id" : "Send Recommendations to Shopify",
+      "service" : {
+        "id" : "http",
+        "parameters" : [
+          {
+            "name" : "URL",
+            "expression" : {
+              "language" : "spelTemplate",
+              "expression" : "https://nsw9mj-j4.myshopify.com/admin/api/graphql.json"
+            }
+          },
+          {
+            "name" : "Path Segments",
+            "expression" : {
+              "language" : "spel",
+              "expression" : ""
+            }
+          },
+          {
+            "name" : "Query Parameters",
+            "expression" : {
+              "language" : "spel",
+              "expression" : ""
+            }
+          },
+          {
+            "name" : "HTTP Method",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "'POST'"
+            }
+          },
+          {
+            "name" : "Headers",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "{\n    {\n        name: \"X-Shopify-Access-Token\", \n        value: \"shpat_a8272c...\"\n    }\n}"
+            }
+          },
+          {
+            "name" : "Body Type",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "'JSON'"
+            }
+          },
+          {
+            "name" : "Body",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "{\n  query: \"mutation UpsertMetaobject($metaobject: MetaobjectUpsertInput!, $handle: MetaobjectHandleInput!) { metaobjectUpsert(handle: $handle, metaobject: $metaobject) { metaobject { id } userErrors { field message code } } }\",\n  variables: {\n      handle: {\n          handle: \"customer-\" + #anonymousUserId,\n          type: \"nu_recommendation\"\n      },\n      metaobject: {\n          fields: {\n              {\n                  key: \"products\",\n                  value: #CONV.toJsonString(#recommendationIds)\n              }\n          }\n      }\n  }\n}"
+            }
+          },
+          {
+            "name" : "Error Strategy",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "'Accept Only 2xx'"
+            }
+          }
+        ]
+      },
+      "output" : "sendRecommendationsResult",
+      "additionalFields" : {
+        "description" : "In this step we use Shopify GraphQL Admin API to upload recommendations (their GIDs) to Shopify's metaobject. The Shopify frontend then will call for these product recommendations.",
+        "layoutData" : {
+          "x" : 0,
+          "y" : 2340
+        }
+      },
+      "type" : "Enricher"
+    },
+    {
+      "id" : "Log Recommendations",
+      "ref" : {
+        "typ" : "kafka",
+        "parameters" : [
+          {
+            "name" : "Topic",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "'http.shopify-found-recommendations'"
+            }
+          },
+          {
+            "name" : "Content type",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "'JSON'"
+            }
+          },
+          {
+            "name" : "Key",
+            "expression" : {
+              "language" : "spel",
+              "expression" : ""
+            }
+          },
+          {
+            "name" : "Raw editor",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "false"
+            }
+          },
+          {
+            "name" : "Value",
+            "expression" : {
+              "language" : "spel",
+              "expression" : "{\n    \"userId\": #anonymousUserId,\n    \"product\": #product,\n    \"aggregatedProducts\": #aggregatedProducts,\n    \"recommendationsOutput\": #recommendationsModelOutput,\n    \"sendResult\": #sendRecommendationsResult\n}"
+            }
+          }
+        ]
+      },
+      "endResult" : null,
+      "isDisabled" : null,
+      "additionalFields" : {
+        "description" : "We treat Kafka topic as an output for business logs. You can see the events here:\nhttps://{YOUR-INSTANCE-ADDRESS}/topics/http.shopify-found-recommendations",
+        "layoutData" : {
+          "x" : 0,
+          "y" : 2520
+        }
+      },
+      "type" : "Sink"
+    }
+  ],
+  "additionalBranches" : [
+  ]
+}

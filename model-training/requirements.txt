@@ -1,0 +1,4 @@
+mlflow-skinny[databricks]
+mlflow==2.18.0
+recommenders==1.2.0
+tensorflow==2.12.1
