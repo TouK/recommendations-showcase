@@ -1,0 +1,966 @@
+<!DOCTYPE html><html><head>
+      <title>blogpost</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/couto/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.15/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="enhancing-shopify-with-real-time-recommendations-using-nussknacker-and-machine-learning">Enhancing Shopify with Real-Time Recommendations Using Nussknacker and Machine Learning </h1>
+<h2 id="overview-bridging-data-streams-and-e-commerce">Overview: Bridging Data Streams and E-commerce </h2>
+<p>In today’s fast-paced world of online shopping, providing customers with a personalized experience isn't just a bonus—it's essential. Customers expect suggestions tailored to their interests and browsing behavior. While modern recommendation systems leverage vast datasets to predict preferences, seamlessly integrating these systems into existing platforms pose challenges. Businesses need real-time data processing and scalable machine learning solutions to meet these demands.</p>
+<p>In this article, we demonstrate how <strong>Nussknacker (Nu)</strong>, paired with <strong>Snowplow</strong>, a popular open-source event tracking system, can transform raw event data into actionable insights. Using Shopify as an example, we showcase how Nu processes click streams and app events in real time. With <strong>Nu MLflow</strong> component, pre-trained machine learning models can be effortlessly integrated into the streaming process, enabling businesses to deploy custom models for dynamic, personalized recommendations instantly.</p>
+<p>By combining real-time data streams with advanced machine learning, Nu helps businesses exceed customer expectations, driving engagement and boosting sales. Nu Designer simplifies complex data processes, making it accessible even for teams without coding expertise or/and without deep knowledge of streaming and Flink. As we delve into this use case, we’ll explore how <strong>Nu</strong>, <strong>Snowplow</strong>, and custom machine learning models come together to elevate e-commerce personalization.</p>
+<h2 id="use-case-real-time-recommendations">Use Case: Real-Time Recommendations </h2>
+<p>We aim to deliver real-time personalized product recommendations in Shopify by following these steps:</p>
+<ul>
+<li><strong>Capture User Interactions:</strong> Use the Snowplow tracker to collect clickstream data from the Shopify store and send it to the Nu Cloud HTTP endpoint for processing.</li>
+<li><strong>Process Events:</strong> Parse incoming event data in Nussknacker, group products viewed by users within a specific time window, and prepare data for ML model input.</li>
+<li><strong>Generate Recommendations:</strong> Utilize the MLflow component in Nussknacker to feed grouped product data into a machine learning model for real-time recommendations.</li>
+<li><strong>Send Recommendations to Shopify:</strong> Use the Nu HTTP component to update Shopify's backend with personalized recommendations via the Shopify API.</li>
+<li><strong>Display Recommendations:</strong> Leverage the Shopify Storefront API and custom JavaScript in Liquid templates to fetch and render recommendations directly on product pages.</li>
+</ul>
+<p>This use case demonstrates how Nussknacker efficiently handles real-time event data, integrates user-supplied machine learning models, and enhances e-commerce platforms like Shopify with personalized recommendations. With this overview in mind, let's delve deeper into each step to see how we can implement this solution.</p>
+<p><img src="./img/use-case-diagram.png" alt="Recommendations use case solution diagram"></p>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> This blog post is designed to be both an informative guide and a hands-on tutorial. Readers can either:</p>
+<ul>
+<li>Follow along to understand the use case conceptually, or</li>
+<li>Recreate the entire scenario step by step using the instructions provided in the collapsed sections.</li>
+</ul>
+<p>For those interested in replicating the solution, detailed step-by-step instructions have been included in expandable sections. These cover everything from setting up the environment to configuring the Nussknacker scenario. To recreate this use case, you'll need a <a href="https://nussknacker.io/nu-cloud/">Nu Cloud</a> instance. You can sign up for a free 3-month trial (no credit card required). This trial provides the necessary environment to implement and test the solution described in this post.</p>
+</blockquote>
+<h3 id="capturing-shopify-events-with-snowplow">Capturing Shopify Events with Snowplow </h3>
+<p>To kickstart our real-time recommendation system, we establish a reliable flow of user interaction data from our Shopify store to Nussknacker using Snowplow.. Snowplow is a well-known solution for capturing user interactions, offering open-source trackers that we can easily leverage. We use newly created Shopify store. Then we configure an HTTP endpoint in our Nu Cloud instance to receive events directly from the Snowplow tracker integrated into our store. This setup allows us to capture detailed user behavior in real time, providing the critical data needed to power our recommendation engine.</p>
+<details>
+   <summary>Expand for detailed instructions on how to do this</summary>
+<p><strong>Preparing the Shopify Store</strong></p>
+<p>First, we create a Shopify store by signing up for <a href="https://www.shopify.com/free-trial">a free trial</a> on their website. It's essential to make the store publicly accessible so we can interact with it as customers do. This involves adjusting the store's settings to <a href="https://community.shopify.com/c/shopify-discussions/how-do-i-make-my-online-store-visible-to-everyone/m-p/1955697#M343186">remove password protection</a>, allowing anyone to view the storefront.</p>
+<p><img src="./img/snowplow-section-activate-shopify-store.png" alt="Shopify Online Store Preferences - removing password protection"></p>
+<p><strong>Setting Up the Nu Cloud Instance</strong></p>
+<p>Next, we access our <a href="https://manage.staging-cloud.nussknacker.io/tenants">Nu Cloud instance</a> and configure the settings to allow incoming events from the Snowplow tracker. After signing in to our Nu Cloud, we click the right-top corner <strong>"Admin"</strong> button to go to the instances list and we stop our instance to make the necessary changes (in the instance Settings):</p>
+<ul>
+<li>We disable authorization by checking the <strong>"No authorization"</strong> option. Since the Snowplow tracker sends events directly from the browser, standard authentication isn’t suitable.</li>
+<li>We set the trusted domain to the address of our Shopify store. This ensures that only events from our store are accepted.</li>
+</ul>
+<p><img src="./img/snowplow-section-instance-settings.png" alt="Nu Cloud - instance settings page"></p>
+<p>After saving the changes, we restart the instance to apply the new settings.</p>
+<p><strong>Creating the Nu HTTP Endpoint</strong></p>
+<p>With the instance configured, we proceed to create an HTTP endpoint that will receive events from the Snowplow tracker. We click <strong>"Open Instance"</strong> button and then navigate to the topics list and add a new topic named <strong>"shopify-events"</strong>. We select <strong>"JSON"</strong> as the content type to match the data format sent by Snowplow.</p>
+<p><img src="./img/snowplow-section-create-topic.png" alt="Nu Cloud - create HTTP endpoint"></p>
+<p>Once the topic is created, we copy the provided endpoint URL. This URL will be used to configure the Snowplow tracker in our Shopify store.</p>
+<p><img src="./img/snowplow-section-topic-view.png" alt="Nu Cloud - view HTTP endpoint"></p>
+<p><strong>Configuring the Snowplow Tracker in Shopify</strong></p>
+<p>Back in Shopify, we install the <a href="https://apps.shopify.com/snowplow-by-snowcatcloud">Snowplow Event Tracker</a> app from the Shopify App Store. After installation, we access the app through the <strong>"Apps"</strong> section in the Shopify admin console. In the frontend settings of the app, we activate the tracker and input the necessary configuration:</p>
+<ul>
+<li>We paste the Nu Cloud endpoint URL into the <strong>"Snowplow Collector"</strong> field.</li>
+<li>We enter an App ID, such as <strong>"shopify-nu-recommendations"</strong>, to identify our application.</li>
+</ul>
+<p><img src="./img/snowplow-section-tracker-configuration.png" alt="Shopify store theme settings - configure Snowplow Event Tracker"></p>
+<p>After saving the settings, the Snowplow tracker begins sending events from our Shopify store to the Nu Cloud endpoint.</p>
+<p><strong>Verifying Events Flow</strong></p>
+<p>To ensure everything is working correctly, we navigate through our Shopify store as a visitor would. Even if we haven't added any products yet and the store is empty, we can still generate events by interacting with the site. We click on the catalog, navigate to existing pages, and explore different sections of the store. These actions will trigger Snowplow events.</p>
+<p>After interacting with the store, we return to the Nu Cloud instance topics list and check the <strong>"shopify-events"</strong> topic we created earlier. In the <strong>"Last Messages Preview"</strong> section, we should see the events we've just generated.</p>
+</details>
+<br>
+<p><img src="./img/snowplow-section-received-clickstream.png" alt="Nu Cloud - collected Snowplow clickstream verification"></p>
+<h3 id="stream-processing-made-easy-with-nussknacker">Stream Processing Made Easy with Nussknacker </h3>
+<p>With our Shopify store sending events to Nu Cloud via Snowplow, we're ready to harness Nussknacker’s capabilities to process these events. The events collected by the HTTP endpoint are stored in Kafka, which serves as the source for our Nussknacker scenario. Although we don't utilize predefined Snowplow event schemas, Nussknacker's flexible JSON parsing allows us to handle the incoming data effectively. We leverage standard Nussknacker components like <strong>Filter</strong> and <strong>Variable</strong> to parse and validate the events, extracting essential information such as user identifiers, viewed products, and timestamps. In addition, we include a debugging sink, which in our user case is one of several Nussknacker methods, to monitor and ensure that our and ensure that our scenario is working correctly.</p>
+<p>This data processing setup ensures that only relevant data is passed to our machine learning model, laying the groundwork for generating accurate and personalized recommendations.</p>
+<details>
+   <summary>Expand for detailed instructions on how to do this</summary>
+<p><strong>Setting Up the Scenario</strong></p>
+<p>On the scenario list page, we click the <strong>"Add New Scenario"</strong> button to create a new streaming scenario. In the dialog that appears, we select <strong>"Streaming"</strong> as the processing mode and name the scenario <strong>"shopify-realtime-recommendations"</strong>. After clicking <strong>"Create"</strong>, we're taken to the scenario editor.</p>
+<p>In the scenario editor, we see an empty canvas where we’ll design our data processing algorithm. From the <strong>Creator Panel</strong> on the left, we drag and drop the <strong>kafka</strong> source component onto the canvas. We use it because the events collected by the previously created HTTP endpoint are stored in Kafka topics within Nu Cloud. And thanks to this, we can retrieve these events directly from Kafka and process them in our scenario. This setup allows us to efficiently handle the incoming events from our Shopify store in real time.</p>
+<p>We double-click on the source node to configure it. In the properties window, we:</p>
+<ul>
+<li><strong>Name:</strong> Change it to <strong>"Shopify Snowplow Events"</strong> for clarity.</li>
+<li><strong>Topic:</strong> Select <strong>"http.shopify-events"</strong> from the Topic dropdown, which is the topic where Snowplow events are collected. <em>(We created this topic in the previous section)</em></li>
+<li><strong>Content-Type:</strong> Set it to <strong>"JSON"</strong> to match the format of the incoming data.</li>
+</ul>
+<p><img src="./img/clickstream-processing-section-kafka-source.png" alt="Nussknacker scenario - configuring kafka source"></p>
+<p>After applying these settings, we save our scenario.</p>
+<p><strong>Adding a Sink Component for Debugging</strong></p>
+<p>To verify that events are flowing correctly, we add a sink component that writes the incoming events to a new topic for inspection. Follow the instructions from the previous section to create a new topic, named <strong>"shopify-found-recommendations"</strong> with <strong>"JSON"</strong> as the content type.</p>
+<p><em>Note: Refer back to the earlier instructions if you need a refresher on creating topics.</em></p>
+<p>Returning to the scenario editor, we drag the <strong>"Kafka"</strong> sink component onto the canvas and place it below our source node. We we connect the source node to the sink node by drawing a connector between them. Then we double-click the sink node to configure it:</p>
+<ul>
+<li><strong>Name:</strong> <strong>"Log Recommendations"</strong></li>
+<li><strong>Topic:</strong> Select <strong>"http.shopify-found-recommendations"</strong> from the Topic dropdown.</li>
+<li><strong>Value:</strong> Enter <code>#input</code> to pass the incoming data directly to the sink.</li>
+</ul>
+<p><img src="./img/clickstream-processing-section-kafka-sink.png" alt="Nussknacker scenario - configuring kafka sink"></p>
+<p>After applying these settings, we save our scenario.</p>
+<p><strong>Visualizing the Scenario</strong></p>
+<p>Before we proceed, it's helpful to see the overall scenario we've built so far.</p>
+<p><img src="./img/clickstream-processing-section-source-sink.png" alt="Nussknacker scenario - kafka source connected with kafka sink"></p>
+<p><strong>Deploying and Testing the Scenario</strong></p>
+<p>With our scenario set up, we save and deploy it by clicking the "Deploy" button in the right panel of the scenario editor. After a while the scenario should be in the running state. To verify that everything is working correctly, we perform the following steps:</p>
+<ol>
+<li>
+<p><strong>Generating Events:</strong> Before generating events, it’s important to have some example products in your Shopify store. If you haven’t added any products yet, please do so now. Once you have added some products, navigate to your Shopify store as a visitor would. Click on various product pages, add items to the cart, and explore different sections of the store. These interactions will generate events that our scenario can process, including product view events that are essential for testing our data extraction logic.</p>
+</li>
+<li>
+<p><strong>Monitoring Event Flow with Counts:</strong> Back in the scenario editor, we click on <strong>"Counts"</strong> in the <strong>"Metrics"</strong> section on the right-hand side menu. We enable auto-refresh by clicking on <strong>"No Refresh"</strong>, which changes to <strong>"Auto-refresh in 10 seconds"</strong>. We select <strong>"Latest Deploy"</strong> from the <strong>"Quick Ranges"</strong> options to view the most recent data.</p>
+<p><img src="./img/clickstream-processing-section-counts.png" alt="Nussknacker scenario - counts view"></p>
+<p>As we interact with the store, we observe the numbers on each node increasing, indicating that events are flowing through the scenario. This real-time feedback confirms that our scenario is receiving and processing events as expected.</p>
+</li>
+<li>
+<p><strong>Inspecting the Output Topic:</strong> We navigate to the Topics list in Nussknacker and select the <strong>"shopify-found-recommendations"</strong> topic. In the <strong>"Last Messages Preview"</strong> section, we can see the messages that have been processed by our scenario. These messages should include the data extracted from the events, such as the user ID, product slugs, and timestamps.</p>
+</li>
+</ol>
+<p>By following these steps, we confirm that our scenario is correctly processing events from our Shopify store, including the product view events necessary for generating personalized recommendations.</p>
+<p><strong>Extracting Relevant Data</strong></p>
+<p>Our goal is to extract specific data needed for our machine learning model:</p>
+<ul>
+<li><strong>User Identifier</strong></li>
+<li><strong>Viewed Product Identifiers</strong></li>
+<li><strong>View Timestamps</strong></li>
+</ul>
+<p>Since our clickstream contains many events, we'll filter out the unnecessary ones and extract the required information from the relevant events. Without a predefined JSON schema, we'll manually parse the JSON data using Nussknacker's expression language (which is <a href="https://nussknacker.io/documentation/docs/next/scenarios_authoring/Spel/">SpEL</a>). We'll use <strong>"Variable"</strong> and <strong>"Filter"</strong> nodes together, where each filter validates the variable extracted.</p>
+<p><strong>Building the Data Extraction Logic with Nussknacker</strong></p>
+<p>To prepare our data for the machine learning model, we’ll implement the data extraction logic. This will be achieved by a sequence of processing steps (nodes in the Nu scenario). Each step involves extracting and validating essential information from the incoming events, ensuring that only relevant data moves forward in our scenario. By the end of this section, we’ll have a robust data extraction pipeline that feeds clean, structured data into our model. Let’s dive into the steps involved:</p>
+<ol>
+<li>
+<p><strong>Extracting and Validating the Message Schema</strong></p>
+<p>We add a <strong>"Variable"</strong> node after the source node to extract the message schema:</p>
+<ul>
+<li><strong>Name:</strong> "Extract Message Schema"</li>
+<li><strong>Variable Name:</strong> <code>messageSchema</code></li>
+<li><strong>Expression:</strong> <code>#input["message"]["schema"].toString()</code></li>
+</ul>
+<p>Immediately after, we add a <strong>"Filter"</strong> node to validate the schema:</p>
+<ul>
+<li><strong>Name:</strong> "Validate Message Schema"</li>
+<li><strong>Expression:</strong> <code>#messageSchema == "iglu:com.snowplowanalytics.snowplow/payload_data/jsonschema/1-0-4"</code></li>
+</ul>
+<p>This ensures only events with the correct schema proceed further.</p>
+<p><img src="./img/clickstream-processing-section-schema-validation.png" alt="Nussknacker scenario - schema validation"></p>
+</li>
+<li>
+<p><strong>Extracting and Validating the Viewed Product Event</strong></p>
+<p>Next, we add another <strong>"Variable"</strong> node to extract the page view event:</p>
+<ul>
+<li><strong>Name:</strong> "Extract Viewed Product Event"</li>
+<li><strong>Variable Name:</strong> <code>viewedProductEvent</code></li>
+<li><strong>Expression:</strong> <code>#input["message"]["data"].^[#this["e"] == "pv"]</code></li>
+</ul>
+<p>We follow this with a <strong>"Filter"</strong> node:</p>
+<ul>
+<li><strong>Name:</strong> "Validate Viewed Product Event"</li>
+<li><strong>Expression:</strong> <code>#viewedProductEvent != null</code></li>
+</ul>
+<p>This extracts the page view event JSON object and ensures it exists.</p>
+<p><img src="./img/clickstream-processing-section-validate-viewed-product.png" alt="Nussknacker scenario - viewed product validation"></p>
+</li>
+<li>
+<p><strong>Extracting and Validating the App ID</strong></p>
+<p>We add a <strong>"Variable"</strong> node to extract the App ID:</p>
+<ul>
+<li><strong>Name:</strong> "Extract App ID"</li>
+<li><strong>Variable Name:</strong> <code>snowplowTrackerAppId</code></li>
+<li><strong>Expression:</strong> <code>#viewedProductEvent["aid"]?.toString()</code></li>
+</ul>
+<p>Followed by a <strong>"Filter"</strong> node to validate it:</p>
+<ul>
+<li><strong>Name:</strong> "Validate App ID"</li>
+<li><strong>Expression:</strong> <code>#snowplowTrackerAppId == "shopify-nu-recommendations"</code></li>
+</ul>
+<p>This ensures the event originates from our Snowplow tracker.</p>
+<p><img src="./img/clickstream-processing-section-validate-app-id.png" alt="Nussknacker scenario - App ID validation"></p>
+</li>
+<li>
+<p><strong>Extracting the Anonymous User ID</strong></p>
+<p>We add another <strong>"Variable"</strong> node:</p>
+<ul>
+<li><strong>Name:</strong> "Extract Anonymous User ID"</li>
+<li><strong>Variable Name:</strong> <code>anonymousUserId</code></li>
+<li><strong>Expression:</strong> <code>#viewedProductEvent["duid"]?.toString()</code></li>
+</ul>
+<p>This extracts the user identifier for personalization.</p>
+</li>
+<li>
+<p><strong>Extracting and Validating Product Details</strong></p>
+<p>We use a <strong>"Record Variable"</strong> node to extract the product identifier and view timestamp. Since there is no better candidate for identifying a product, we will use its slug as the product’s identifier.</p>
+<ul>
+<li>
+<p><strong>Name:</strong> "Extract Product Details"</p>
+</li>
+<li>
+<p><strong>Variable Name:</strong> <code>product</code></p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+<ul>
+<li>
+<p><strong>slug</strong> with <strong>Expression:</strong></p>
+<pre data-role="codeBlock" data-info="spel" class="language-spel spel"><code>#viewedProductEvent["url"]?.toString()?.startsWith("https://your-store.myshopify.com/products/")
+  ? #viewedProductEvent["url"]?.toString()?.substring("https://your-store.myshopify.com/products/".length())
+  : null
+</code></pre><p><em>Note: Replace <code>https://your-store.myshopify.com</code> with your actual store URL.</em></p>
+</li>
+<li>
+<p><strong>viewTimestamp</strong> with <strong>Expression:</strong> <code>#viewedProductEvent["dtm"]?.toLong()</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="./img/clickstream-processing-section-extract-product-details.png" alt="Nussknacker scenario - Extract Product Details record variable"></p>
+<p>We then add a <strong>"Filter"</strong> node to validate the extracted data:</p>
+<ul>
+<li><strong>Name:</strong> "Validate Product Details"</li>
+<li><strong>Expression:</strong> <code>#anonymousUserId != null &amp;&amp; #product.slug != null &amp;&amp; #product.viewTimestamp != null</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Updating the Sink to Output Extracted Data</strong></p>
+<p>We double-click the sink node to edit it:</p>
+<ul>
+<li>
+<p><strong>Value:</strong> Enter:</p>
+<pre data-role="codeBlock" data-info="spel" class="language-spel spel"><code>{
+  "userId": #anonymousUserId,
+  "product": #product
+}
+</code></pre></li>
+</ul>
+<p>This ensures the sink outputs only the relevant data.</p>
+<p><img src="./img/clickstream-processing-section-sink-modifications.png" alt="Nussknacker scenario - sink modifications"></p>
+</li>
+</ol>
+<p><strong>Deploying and Testing the Enhanced Scenario</strong></p>
+<p>After implementing the data extraction logic, we save and redeploy the scenario by clicking the "Deploy" button. To test our enhancements, we repeat the testing procedure outlined in the <strong>Deploying and Testing the Scenario</strong> section. By revisiting the testing steps, we ensure that our enhancements are functioning as intended and that the scenario continues to process events correctly.</p>
+</details>
+<p><img src="./img/clickstream-processing-section-scenario.png" alt="Nussknacker scenario - sink modifications"></p>
+<h3 id="incorporating-machine-learning-for-dynamic-recommendations">Incorporating Machine Learning for Dynamic Recommendations </h3>
+<p>Personalized product recommendations based on the products a user has viewed require a robust machine learning learning model capable of capturing both short-term and long-term user preferences. We find <strong>SLi-Rec</strong> (<a href="https://www.microsoft.com/en-us/research/uploads/prod/2019/07/IJCAI19-ready_v1.pdf">Short-term and Long-term preference Integrated RECommender system</a>), a deep learning-based framework designed to enhance personalized recommendations by modeling users' sequential behavior. SLi-Rec uses self-attention mechanisms to effectively capture both long-term and short-term user preferences.</p>
+<p><strong>Key Features of SLi-Rec:</strong></p>
+<ul>
+<li><strong>Self-Attention Mechanism:</strong> Identifies relationships between items in a user's interaction sequence, enhancing the representation of user preferences.</li>
+<li><strong>Fusion of Long- and Short-Term Interests:</strong> Balances immediate trends with established patterns for better recommendation accuracy.</li>
+<li><strong>Efficient Sequential Modeling:</strong> Processes user interaction sequences dynamically, improving predictions for the next item of interest.</li>
+</ul>
+<p>In the realm of recommender systems, two paradigms are most popular today: <strong>general recommenders</strong> and <strong>sequential recommenders</strong>.</p>
+<p><strong>General recommenders</strong>, such as factorization-based collaborative filtering methods, aim to learn users' long-term preferences, which are presumed to be static or change slowly over time. While these systems can provide decent recommendations, they often fail to reflect users' recent behaviors. They also require periodic retraining on collected historical data to account for any changes in users' preferences.</p>
+<p><strong>Sequential recommenders</strong>, on the other hand, strive to capture the variability of user behaviors influenced by evolving interests, demands, or global trends. These recommenders operate on sequences of user actions, meaning any changes in preferences and the order of those actions both influence the provided recommendations. This attention to both short-term and long-term interests makes sequential recommenders superior in use cases requiring real-time product recommendations.</p>
+<p>Given our goal of delivering real-time, personalized recommendations in our Shopify store, SLi-Rec's ability to integrate both short-term and long-term user interests makes it an ideal choice. By leveraging SLi-Rec within our Nussknacker scenario, we can dynamically respond to users' immediate behaviors while also considering their historical preferences, thereby enhancing the overall shopping experience.</p>
+<h3 id="a-word-about-ml-in-nu">A Word About ML In Nu </h3>
+<p>To integrate our machine learning model into the Nussknacker processing pipeline, we utilize Nussknacker's support for model inference through its <strong>MLflow</strong> component. This feature allows us to incorporate machine learning models directly into our streaming data flows, enabling real-time predictions.</p>
+<p>Using the MLflow component, we select a specific model from the <strong>MLflow Model Registry</strong>. The MLflow Model Registry is a centralized repository that manages the lifecycle of ML models, providing versioning and easy deployment options. Within Nussknacker, we assign the required input parameters to the model, aligning it with the data we've extracted from our events.</p>
+<p>During the scenario deployment to the <strong>Flink</strong> runtime environment, Nussknacker retrieves the selected model from the registry and deploys it within the <strong>Nussknacker ML runtime</strong>, a distributed execution environment optimized for Python-based machine learning tasks. This specialized runtime ensures models developed in Python integrate smoothly, providing both performance and scalability for continuous inference when using the model in stream processing.</p>
+<p>The Flink job, orchestrated by Nussknacker Designer, communicates directly with the deployed model in the ML runtime to perform inference. With this setup, our streaming application delivers real-time predictions based on incoming data, maintaining low latency and enabling rapid, data-driven decision-making.</p>
+<p>By leveraging Nussknacker's MLflow component, we effectively bring our machine learning models into the streaming context, allowing us to provide dynamic, personalized recommendations to users as they interact with our Shopify store.</p>
+<p>For a deeper dive into how this process works, you can read <a href="https://nussknacker.io/blog/ml-models-inference-in-fraud-detection/">Łukasz Jędrzejewski’s blog post</a>. In the section <strong>"MLflow model inference simplified with Nussknacker ML runtime"</strong>, he explains the integration in detail, showcasing how Nussknacker simplifies model inference in streaming applications.</p>
+<h3 id="preparing-and-registering-the-recommendation-model">Preparing and Registering the Recommendation Model </h3>
+<p>To utilize our selected recommendation model within Nussknacker, we first need to train it with the relevant data. We’ve provided a comprehensive Jupyter notebook and detailed instructions to guide you through setting up your environment on Azure Databricks, training the model, and registering it in MLflow. Once the model is trained and registered, it’s ready to be integrated into our Nussknacker scenario. This integration enables us to turn aggregated user interactions into real-time personalized product recommendations, leveraging the power of machine learning.</p>
+<details>
+   <summary>Expand for detailed instructions on how to do this</summary>
+<p><strong>Setting Up Azure Databricks</strong></p>
+<p>Before diving into the notebook, we need to set up the environment where we’ll train the recommendations model. This guide walks you through the necessary steps to prepare Azure Databricks for seamless execution of the notebook.</p>
+<p>For this task, we’ll use <strong>Databricks</strong>, a popular platform for collaborative data science and machine learning. Specifically, we’ll leverage Databricks on the Azure cloud to efficiently build, train, and deploy our model. If you don’t already have an Azure subscription, you can sign up for a free trial at the <a href="https://portal.azure.com/">Azure Portal</a>.</p>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> If you already have an Azure Databricks account, you can go to the "Installing Required Libraries" subsection</p>
+</blockquote>
+<p>By the end of this section, you’ll have a fully configured Azure Databricks environment, ready to run the notebook and train the recommendations model.</p>
+<p><strong>Create a Resource Group</strong></p>
+<p>We start by setting up our environment on Azure by creating a resource group:</p>
+<ul>
+<li>Log in to the <a href="https://portal.azure.com/">Azure Portal</a> and navigate to <strong>Resource Groups</strong>.</li>
+<li>Click the <strong>"Create"</strong> button to create a new resource group.</li>
+<li>Select your subscription, provide a name for the resource group, and choose a region that suits you.</li>
+<li>Click <strong>"Review + Create"</strong>, and once validation passes, click <strong>"Create"</strong> to finalize the setup.</li>
+</ul>
+<p><img src="./img/model-training-create-resource-group.png" alt="Model training - creating resource group"></p>
+<p><strong>Creating a Databricks Workspace</strong></p>
+<p>Next, we create a Databricks workspace within the resource group:</p>
+<ul>
+<li>Navigate to <strong>Azure Databricks</strong> services in the Azure Portal.</li>
+<li>Click <strong>"Create"</strong> to set up a new Databricks workspace.</li>
+<li>Choose your subscription and the resource group you just created.</li>
+<li>Provide a name for your workspace and select the same region as before.</li>
+<li>Click <strong>"Review + Create"</strong>, and after validation, click <strong>"Create"</strong>.</li>
+<li>Wait for the deployment to complete. This may take a few minutes.</li>
+<li>Once finished, click <strong>"Go to resource"</strong> to access your new Databricks workspace.</li>
+</ul>
+<p><img src="./img/model-training-create-workspace.png" alt="Model training - creating workspace"></p>
+<p><strong>Creating a Compute Cluster</strong></p>
+<p>We have to create a compute cluster to run our notebook and train the model:</p>
+<ul>
+<li>
+<p>In the Databricks workspace, click on <strong>"Compute"</strong> in the left-hand menu.</p>
+</li>
+<li>
+<p>Click <strong>"Create Cluster"</strong>.</p>
+</li>
+<li>
+<p>Configure the cluster settings:</p>
+<ul>
+<li><strong>Cluster Mode:</strong> Select <strong>"Single Node"</strong>.</li>
+<li><strong>Databricks Runtime Version:</strong> Choose <strong>"14.3 LTS"</strong> or a version that supports Python 3.10.</li>
+</ul>
+</li>
+<li>
+<p>Leave other settings at their default values.</p>
+</li>
+<li>
+<p>Click <strong>"Create Cluster"</strong>. The cluster creation process may take a few minutes.</p>
+</li>
+</ul>
+<p><img src="./img/model-training-create-compute.png" alt="Model training - create compute"></p>
+<p><strong>Installing Required Libraries</strong></p>
+<p>With the cluster created, we need to install the necessary Python libraries:</p>
+<ul>
+<li>
+<p>Click <strong>"Launch Workspace"</strong> to open the Databricks workspace in a new tab.</p>
+</li>
+<li>
+<p>In the <strong>"Compute"</strong> section, click on your newly created cluster.</p>
+</li>
+<li>
+<p>Navigate to the <strong>"Libraries"</strong> tab.</p>
+</li>
+<li>
+<p>Click <strong>"Install New"</strong>.</p>
+</li>
+<li>
+<p>In the <strong>"Install Library"</strong> dialog:</p>
+<ul>
+<li><strong>Library Source:</strong> Select <strong>"PyPI"</strong>.</li>
+<li><strong>Package:</strong> Enter the library name and version.</li>
+</ul>
+</li>
+<li>
+<p>Using the method mentioned above, install the following libraries one by one:</p>
+<ul>
+<li><code>mlflow-skinny[databricks]</code></li>
+<li><code>mlflow==2.18.0</code></li>
+<li><code>recommenders==1.2.0</code></li>
+<li><code>tensorflow==2.12.1</code></li>
+</ul>
+</li>
+<li>
+<p>Wait for all libraries to be installed successfully before proceeding.</p>
+</li>
+</ul>
+<p><img src="./img/model-training-installing-libraries.png" alt="Model training - installing libraries"></p>
+<p><strong>Importing the Python Notebook</strong></p>
+<p>Now, we import our prepared Jupyter notebook into the Databricks workspace:</p>
+<ul>
+<li>In the left-hand menu, click on <strong>"Workspace"</strong>.</li>
+<li>Click the <strong>"Create"</strong> button and select <strong>"Git Folder"</strong>.</li>
+<li>Enter the Git repository URL: <a href="https://github.com/TouK/recommendations-showcase">https://github.com/TouK/recommendations-showcase</a></li>
+<li>Click <strong>"Create"</strong> to clone the repository into your workspace.</li>
+<li>You should now see the notebook <strong>"recommendations_model_training"</strong> in the <strong>"model-training"</strong> folder of your workspace.</li>
+</ul>
+<p><img src="./img/model-training-cloned-repo.png" alt="Model training - cloned notebook repository"></p>
+<p><strong>Creating a Shopify Token</strong></p>
+<p>Our notebook requires access to your Shopify store to fetch data and interact with products. We create a private app to generate an API token:</p>
+<ul>
+<li>
+<p>In your store Settings (find the **"Settings" button in the left-bottom of Shopify admin panel), navigate to **"Apps<br>
+and sales channels"**.</p>
+</li>
+<li>
+<p>Click on <strong>"Develop apps"</strong>.</p>
+</li>
+<li>
+<p>Click <strong>"Create an app"</strong>.</p>
+</li>
+<li>
+<p>Provide an app name (e.g., <strong>"nussknacker_ml_notebook"</strong>) and click <strong>"Create app"</strong>.</p>
+</li>
+<li>
+<p>In the app settings, go to the <strong>"Configuration"</strong> tab.</p>
+</li>
+<li>
+<p>Click <strong>"Configure"</strong> in <strong>"Admin API integration"</strong> section, and select the necessary permissions:</p>
+<ul>
+<li><code>write_product_listings</code></li>
+<li><code>read_product_listings</code></li>
+<li><code>write_products</code></li>
+<li><code>read_products</code></li>
+<li><code>write_publications</code></li>
+<li><code>read_publications</code></li>
+</ul>
+</li>
+<li>
+<p>Click <strong>"Save"</strong> to apply the permissions.</p>
+</li>
+<li>
+<p>Navigate to the <strong>"API Credentials"</strong> tab.</p>
+</li>
+<li>
+<p>In the <strong>"Access tokens"</strong> section, click <strong>"Install app"</strong>.</p>
+</li>
+<li>
+<p>Confirm the installation, and Shopify will generate an access token.</p>
+</li>
+<li>
+<p><strong>Copy the token</strong> and store it securely, as it will be needed in the notebook.</p>
+</li>
+</ul>
+<p><img src="./img/model-training-notebook-shopify-token-creation.png" alt="Model training - cloned notebook repository"></p>
+<p><strong>Running the Notebook</strong></p>
+<p>Now we're ready to run the notebook and train our model:</p>
+<ul>
+<li>
+<p>In the Databricks workspace, navigate to the imported notebook <strong>recommendations_model_training.ipynb</strong> in the <code>model-training</code> directory.</p>
+</li>
+<li>
+<p>Attach the notebook to your compute cluster by selecting the cluster from the dropdown menu at the top of the notebook.</p>
+</li>
+<li>
+<p>Follow the instructions within the notebook, executing each cell in order.</p>
+</li>
+<li>
+<p>In the first step of the notebook, you have three options for data sources:</p>
+<ul>
+<li><strong>Option 1:</strong> Generate synthetic data if your Shopify store doesn't have products.</li>
+<li><strong>Option 2:</strong> Use your own data.</li>
+<li><strong>Option 3:</strong> Use an existing dataset.</li>
+</ul>
+</li>
+<li>
+<p>If you've just created the Shopify store and have no products or limited data, <strong>Option 1</strong> is recommended.</p>
+</li>
+<li>
+<p>Proceed through the notebook, ensuring you input any required parameters, such as the Shopify token and Databricks<br>
+credentials you obtained earlier.</p>
+</li>
+</ul>
+<p><img src="./img/model-training-ready-to-use-notebook.png" alt="Model training - notebook is ready to be used"></p>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> The model training process may take approximately <strong>30 minutes</strong>. Be patient and ensure that your cluster remains active during this time.</p>
+</blockquote>
+<p><strong>Exposing Databricks MLflow Registry</strong></p>
+<p>To allow Nussknacker to communicate with the Databricks MLflow Model Registry, we need to expose it externally:</p>
+<ol>
+<li>Note the Workspace URL</li>
+</ol>
+<ul>
+<li>
+<p>In the <strong>Overview</strong> section of your Databricks workspace, note down the <strong>URL</strong> provided. We'll need this later for configuring Nussknacker.</p>
+<p><img src="./img/model-training-workspace-overview.png" alt="Model training - workspace overview"></p>
+</li>
+</ul>
+<ol>
+<li>Set Up Service Principals and Secrets</li>
+</ol>
+<p>To securely connect Nussknacker with the Databricks MLflow Registry:</p>
+<ul>
+<li>
+<p>In the Databricks workspace, click on your user icon in the top-right corner and select <strong>Settings"</strong>.</p>
+<p><img src="./img/model-training-workspace-settings.png" alt="Model training - workspace settings"></p>
+</li>
+<li>
+<p>Navigate to <strong>"Identity and access"</strong>.</p>
+</li>
+<li>
+<p>Click <strong>"Manage"</strong> button in the <strong>"Service principals"</strong> section</p>
+</li>
+<li>
+<p>Click <strong>"Generate New Token"</strong>.</p>
+</li>
+<li>
+<p>Click <strong>"Add Service Principal"</strong> and <strong>"Add new"</strong> in the modal window</p>
+</li>
+<li>
+<p>Choose <strong>"Databricks Managed"</strong>, provide a name (e.g., <strong>"nu-cloud"</strong>), and click <strong>"Add"</strong>.</p>
+</li>
+<li>
+<p>Click on the newly created service principal's name.</p>
+</li>
+<li>
+<p>Pick <strong>"Allow cluster creation"</strong> option and click <strong>"Update"</strong>.</p>
+</li>
+<li>
+<p>Navigate to the <strong>"Secrets"</strong> tab and click <strong>"Generate New Secret"</strong>.</p>
+</li>
+<li>
+<p>Copy both the "Client ID" and "Secret" values** and store them securely.</p>
+<p><img src="./img/model-training-service-principals.png" alt="Model training - service principals"></p>
+</li>
+</ul>
+<ol>
+<li>Share the <strong>"recommendations-showcase"</strong> Repository</li>
+</ol>
+<ul>
+<li>
+<p>Navigate to <strong>"Workspace"</strong> in the left-hand menu, select <strong>"Home"</strong>, and locate the <strong>"recommendations-showcase"</strong><br>
+repository.</p>
+</li>
+<li>
+<p>Click the <strong>Share</strong> button in the top-left corner of the repository page.</p>
+</li>
+<li>
+<p>In the <strong>"Type to add multiple users, groups or service principal"</strong> field, enter the service principal name<br>
+<strong>"nu-cloud"</strong> that you created earlier.</p>
+</li>
+<li>
+<p>Set the permission level to <strong>"Can View"</strong>, then click the <strong>"Add"</strong> button.</p>
+</li>
+<li>
+<p>Close the sharing modal to finalize the changes.</p>
+<p><img src="./img/model-training-workspace-permissions.png" alt="Model training - workspace permissions"></p>
+</li>
+</ul>
+<ol>
+<li>Grant Read Permission for the Trained and Published Model</li>
+</ol>
+<ul>
+<li>
+<p>In the left-hand menu, navigate to <strong>"Models"</strong> under the <strong>"Machine Learning"</strong> section. You should see the<br>
+<strong>"slirec_shopify_model"</strong> listed.</p>
+</li>
+<li>
+<p>Click the <strong>"Permissions"</strong> button in the top-right corner of the model's page.</p>
+</li>
+<li>
+<p>In the <strong>"Select user, group, and service principal..."</strong> field, enter <strong>"nu-cloud"</strong>.</p>
+</li>
+<li>
+<p>Set the permission level to <strong>"Can Read"</strong>, then click <strong>"Add"</strong>.</p>
+</li>
+<li>
+<p>Save your changes by clicking the <strong>"Save"</strong> button.</p>
+<p><img src="./img/model-training-registry-permissions.png" alt="Model training - model registry permissions"></p>
+</li>
+</ul>
+<p>The model registry is now accessible for read operations from outside the Azure Databricks platform.</p>
+</details>
+<br>
+<h3 id="using-nu-ml-component-in-real-time-data-processing">Using Nu ML Component in Real-Time Data Processing </h3>
+<p>With the trained model prepared, we focus on embedding it into our Nussknacker scenario. The integration involves combining real-time data aggregation with machine learning inference to create a dynamic and responsive system.</p>
+<p>First, we group product interactions for each user using Nussknacker’s <strong>Sliding Window</strong> aggregation component. This step collects product views of a single user over a defined time period (e.g., five minutes) and organizes them into structured data, including product slugs and timestamps. These aggregated events represent the user’s recent interactions, which serve as the input for the recommendation model.</p>
+<p>Next, we integrate the machine learning model using the <strong>MLflow</strong> component. This allows us to seamlessly connect to the model hosted in the MLflow registry (in our case, Azure Databricks) and utilize the model's signature to correctly assign the aggregated data variables as inputs. During runtime, the model processes this input to generate personalized product recommendations in real time.</p>
+<p>This powerful setup demonstrates how Nussknacker simplifies the integration of machine learning models into streaming data processes, enabling us to deliver a more engaging shopping experience to our customers. In the next step, we’ll bring these recommendations full circle by sending them back to Shopify for display, completing the loop from data collection to customer engagement.</p>
+<details>
+   <summary>Expand for detailed instructions on how to do this</summary>
+<p><strong>Enable the Nu ML integration</strong></p>
+<p>First, we need to enable the MLflow component within Nussknacker to connect with our model hosted on Azure Databricks. This involves updating our instance settings to establish a secure connection.</p>
+<p>First, please stop the scenario by clicking the <strong>"Cancel"</strong> button in the right-hand menu to stop our scenario. then we click on the <strong>"Admin"</strong> button located in the top-right corner. To apply new configurations,it's necessary to stop the instance temporarily. We do this by clicking the <strong>"Stop"</strong> button and wait until the instance status changes to <strong>"Stopped"</strong>.</p>
+<p>Once the instance is stopped, we access the instance settings by clicking on <strong>"Settings"</strong>. In the <strong>"Manage Instance Enrichers"</strong> section, we find the <strong>"MLflow"</strong> card. Clicking on it opens a form where we need to input the details to connect to our MLflow server.</p>
+<p>We fill in the following information:</p>
+<ul>
+<li><strong>Name:</strong> We enter <strong>"azuredatabricks"</strong> as the identifier for our ML component within Nussknacker (you )</li>
+<li><strong>Server URL:</strong> This is the URL from the <strong>"Overview"</strong> section of our Azure Databricks Service—the workspace URL we<br>
+noted earlier.</li>
+<li><strong>Token URL:</strong> We append <code>/oidc/v1/token</code> to the Server URL, forming the complete Token URL needed for authentication.</li>
+<li><strong>Client ID:</strong> This is the <strong>"Client ID"</strong> saved when we created the Service Principal in Azure.</li>
+<li><strong>Client Secret:</strong> This is the <strong>"Secret"</strong> saved when we created the Service Principal in Azure.</li>
+<li><strong>Scope:</strong> We set this to <strong>"all-apis"</strong>.</li>
+</ul>
+<p><img src="./img/using-model-mlflow-component-configuration.png" alt="Using model - MLflow component configuration"></p>
+<p>After entering all the details, we click <strong>"Save changes"</strong> to apply the configuration. Returning to the instances list, we restart the instance by clicking <strong>"Start"</strong>. Once the instance is running, we reopen our scenario editor.</p>
+<p>In the <strong>"Creator Panel"</strong> on the left, under the <strong>"Enrichers"</strong> section, we confirm that the <strong>"azuredatabricks-mlflow"</strong> component is now available (you may need to refresh the page). This component allows us to integrate our model into the data processing flow.</p>
+<p><img src="./img/using-model-mlflow-component-in-creator-panel.png" alt="Using model - MLflow component in creator panel"></p>
+<p><strong>Aggregating User Interactions</strong></p>
+<p>Our model requires specific inputs: the user ID, a list of viewed product slugs, and corresponding timestamps. Since each Snowplow event represents a single product view, we need to collect multiple events for each user over a period.</p>
+<p>To achieve this, we use Nussknacker's <strong>"Sliding Window"</strong> aggregate component. This allows us to collect and aggregate data over a defined time window. We locate the <strong>"sliding-window"</strong> component in the <strong>"Custom"</strong> section of the Creator Panel. We drag it into the scenario, placing it between the <strong>"Validate Product Details"</strong> node and the <strong>"Log Recommendations"</strong> sink node.</p>
+<p>Double-clicking the sliding window node opens its properties. We give it a descriptive name, such as <strong>"Aggregate Products for a Given User"</strong>, and set the <strong>Output Variable Name</strong> to <code>aggregatedProducts</code>.</p>
+<p>To group events by user, we set the <strong>Group By</strong> field to <code>#anonymousUserId</code>. This ensures that we aggregate events separately for each user.</p>
+<p>In the <strong>"Aggregations"</strong> section, we define two aggregations:</p>
+<ul>
+<li><strong>First Aggregation (Product Slugs):</strong>
+<ul>
+<li><strong>Output Field:</strong> <code>slugs</code></li>
+<li><strong>Aggregator Type:</strong> <code>List</code></li>
+<li><strong>Aggregator Input:</strong> <code>#product.slug</code></li>
+</ul>
+</li>
+<li><strong>Second Aggregation (View Timestamps):</strong>
+<ul>
+<li><strong>Output Field:</strong> <code>viewTimestamps</code></li>
+<li><strong>Aggregator Type:</strong> <code>List</code></li>
+<li><strong>Aggregator Input:</strong> <code>#product.viewTimestamp</code></li>
+</ul>
+</li>
+</ul>
+<p>We set the <strong>"Window Length"</strong> to <strong>5 minutes</strong>, meaning the aggregation considers events from the last five minutes for each user. For each processed event, it produces an updated list of the user's viewed product slugs and their corresponding view timestamps.</p>
+<p><img src="./img/using-model-aggregate-sliding-properties.png" alt="Using model - MLflow component in creator panel"></p>
+<p>After applying these settings, our scenario now collects and aggregates user interactions over a five-minute window, preparing the data needed for the model.</p>
+<p><strong>Integrating the ML Model</strong></p>
+<p>With the aggregated data ready, we proceed to integrate our machine learning model into the scenario.</p>
+<p>From the <strong>"Enrichers"</strong> section in the Creator Panel, we drag the <strong>"azuredatabricks-mlflow"</strong> component into the scenario, placing it after the previously created aggregation node.</p>
+<p>Opening its properties, we give it a meaningful name, such as <strong>"Infer Recommendations"</strong>. We select our model <strong>"slirec_shopify_model"</strong> from the <strong>"Model"</strong> dropdown and choose the latest version available.</p>
+<p>The component then displays fields for the model's input parameters:</p>
+<ul>
+<li><strong>userId:</strong> We enter <code>#anonymousUserId</code> to pass the user's ID.</li>
+<li><strong>items:</strong> We enter <code>#aggregatedProducts.slugs</code> to provide the list of viewed product slugs.</li>
+<li><strong>timestamps:</strong> We enter <code>#aggregatedProducts.viewTimestamps.![#this.toString()]</code> to pass the list of timestamps,<br>
+converting each timestamp to a string as required by the model.</li>
+</ul>
+<p>We set the <strong>"Output Variable Name"</strong> to <code>recommendationsModelOutput</code>, which will store the model's output.</p>
+<p><img src="./img/using-model-mlflow-component-properties.png" alt="Using model - MLflow component properties"></p>
+<p>After applying these settings, our model is now integrated into the scenario and ready to generate recommendations based on the aggregated user interactions.</p>
+<p><strong>Updating the Sink Node</strong></p>
+<p>To verify that the model is working correctly, we update the sink node to include the model's output in the data we write to the topic.</p>
+<p>We open the <strong>"Log Recommendations"</strong> sink node and modify the <strong>"Value"</strong> field to:</p>
+<pre data-role="codeBlock" data-info="spel" class="language-spel spel"><code>{
+    "userId": #anonymousUserId,
+    "product": #product,
+    "aggregatedProducts": #aggregatedProducts,
+    "recommendationsOutput": #recommendationsModelOutput
+}
+</code></pre><p>This structure includes both the user ID, currently viewed product, aggregated products in 5 minutes windows and the recommendations model output.</p>
+<p><strong>Deploying and Testing the Scenario</strong></p>
+<p>With all components in place—including the MLflow component and the sliding window aggregation—we save the scenario and deploy it by clicking the <strong>Deploy</strong> button. After confirming the deployment, the scenario is up and running.</p>
+<p>To test our enhancements, we once again follow the testing procedure outlined in the <strong>Deploying and Testing the Scenario</strong> section. However, this time, we’re focusing on verifying that the model inference is working and that we receive recommendations based on aggregated user interactions.</p>
+<p>Using this method we confirm that the model inference works and that we receive recommendations for the aggregated products for each user.</p>
+</details>
+<br>
+<p><img src="./img/using-model-whole-scenario.png" alt="Using model - scenario"></p>
+<h3 id="sending-recommendations-back-to-shopify">Sending Recommendations Back to Shopify </h3>
+<p>With the machine learning model integrated into our Nussknacker scenario, we now turn our attention to sending personalized recommendations back to Shopify. This step ensures that the insights generated by our scenario are made accessible to users, enhancing their shopping experience.</p>
+<p>Before sending the recommendations, we refine the model's output through a post-processing step. By limiting the number of recommended products to a maximum of 10, we ensure the suggestions remain concise and relevant. This highlights Nussknacker’s flexibility in adapting raw model inference results to meet specific business needs.</p>
+<p>To handle the transmission of recommendations, we utilize Nussknacker's versatile HTTP component. This general-purpose tool seamlessly integrates with Shopify’s Admin API, even though the API relies on GraphQL. The HTTP component provides a straightforward and efficient way to communicate with Shopify’s backend, showcasing its adaptability for various integration scenarios.</p>
+<p>While the recommendations need to be stored for retrieval, the storage backend could be any database or system that fits the business requirements. For this use case, we chose Shopify’s Metaobjects to simplify the setup. These Metaobjects associate the recommended products with a user ID, making them easy to manage and retrieve. However, this approach could be replaced with other storage solutions depending on the desired architecture.</p>
+<p>With this we have successfully completed the technical flow: capturing user interactions, generating personalized recommendations using a machine learning model, and sending them back to Shopify for storage. This integration demonstrates the full potential of combining Nussknacker’s streaming capabilities with Shopify’s API to deliver real-time personalization.</p>
+<p>The next step is to make these recommendations visible to customers. In the upcoming section, we’ll focus on how to display the recommendations within your Shopify store.</p>
+<details>
+   <summary>Expand for detailed instructions on how to do this</summary>
+<p><strong>Post-Processing the Recommendations</strong></p>
+<p>Before sending the recommendations, we need to perform a simple post-processing step. Often, the raw output from a model isn't ready to be used directly and requires some adaptation. In our case, we decide to limit the number of recommendations to a maximum of <strong>10</strong> products to keep the suggestions concise and relevant.</p>
+<p>To implement this, we add a new <strong>Variable</strong> node to our scenario:</p>
+<ol>
+<li>
+<p><strong>Adding the Variable Node:</strong></p>
+<p>From the <strong>Creator Panel</strong>, we drag the <strong>Variable</strong> component into our scenario, placing it after the <strong>"Infer Recommendations"</strong> node.</p>
+</li>
+<li>
+<p><strong>Configuring the Variable Node:</strong></p>
+<p>We double-click the variable node to open its properties.</p>
+<ul>
+<li>
+<p><strong>Name:</strong> We enter <strong>"Limit Recommendations"</strong> to reflect its purpose.</p>
+</li>
+<li>
+<p><strong>Variable Name:</strong> <code>recommendationIds</code></p>
+</li>
+<li>
+<p><strong>Expression:</strong> We use the following expression to limit the recommendations:</p>
+<pre data-role="codeBlock" data-info="spel" class="language-spel spel"><code>#COLLECTION.take(#recommendationsModelOutput.itemIds, 10)
+</code></pre><p>This expression takes the first 10 items from the list of recommendations provided by the model.</p>
+</li>
+<li>
+<p>We click <strong>"Apply"</strong> to save the changes.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="./img/using-model-whole-scenario.png" alt="Send recommendations - recommendations limit"></p>
+<p><strong>Preparing to Send Recommendations to Shopify</strong></p>
+<p>With our curated list of recommendation IDs ready, the next step is to send these to Shopify so they can be displayed to the user. We decide to use Shopify's <a href="https://shopify.dev/docs/api/admin-graphql/2024-10/mutations/metaobjectUpsert">Admin API</a> to store the recommendations in a custom metaobject. Although the API uses GraphQL, Nussknacker's flexible HTTP component allows us to interact with it seamlessly.</p>
+<p>But before we start, let's:</p>
+<p><strong>Create an API Token in Shopify</strong></p>
+<p>To authenticate our requests, we need to create a private app in Shopify to generate an access token.</p>
+<ol>
+<li>
+<p><strong>Accessing Shopify Admin Console:</strong></p>
+<p>We log into our Shopify admin panel and navigate to <strong>"Apps and sales channels"</strong> from the left-hand menu.</p>
+</li>
+<li>
+<p><strong>Creating a New App:</strong></p>
+<p>At the bottom of the page, we click on <strong>"Develop apps"</strong>. On the <strong>"Develop apps"</strong> page, we select <strong>"Create an app"</strong>.</p>
+</li>
+<li>
+<p><strong>Configuring the App:</strong></p>
+<ul>
+<li><strong>App Name:</strong> We enter <strong>"nussknacker_recommendations_scenario"</strong>.</li>
+<li>We click <strong>"Create app"</strong> to proceed.</li>
+</ul>
+</li>
+<li>
+<p><strong>Setting API Permissions:</strong></p>
+<p>On the app's page, we navigate to the <strong>"Configuration"</strong> tab. Under <strong>"Admin API integration"</strong>, we click<br>
+<strong>"Configure"</strong>. We select the following scopes: <code>write_metaobjects</code>, <code>read_metaobjects</code>. We then click <strong>"Save"</strong>.</p>
+</li>
+<li>
+<p><strong>Installing the App and Retrieving the Token:</strong></p>
+<p>We move to the <strong>"API credentials"</strong> tab. In the <strong>"Access tokens"</strong> section, we click <strong>"Install app"</strong> and confirm the installation. Once installed, we click <strong>"Reveal token once"</strong>, copy the token, and save it securely for later use.</p>
+</li>
+</ol>
+<p><img src="./img/send-recommendations-shopify-token-creation.png" alt="Send recommendations - creating a shopify token"></p>
+<p><strong>Create a Metaobject in Shopify</strong></p>
+<p>To store our recommendations, we need to define a metaobject in Shopify associated with each user.</p>
+<ol>
+<li>
+<p><strong>Navigating to Custom Data:</strong></p>
+<p>Back in the Shopify admin panel menu, we select <strong>"Custom data"</strong>.</p>
+</li>
+<li>
+<p><strong>Adding a Metaobject Definition:</strong></p>
+<p>In the <strong>"Define you first metaobjects"</strong> section, we click on <strong>"Add definition"</strong>.</p>
+</li>
+<li>
+<p><strong>Configuring the Metaobject Definition:</strong></p>
+<ul>
+<li>
+<p><strong>Name:</strong> We enter <strong>"nu_recommendation"</strong>.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+<ul>
+<li>We click <strong>"Add field"</strong>.</li>
+<li>In the field creation form:
+<ul>
+<li><strong>Type:</strong> We search for and select <strong>"Product"</strong>.</li>
+<li><strong>Name:</strong> We enter <strong>"products"</strong>.</li>
+<li><strong>Configuration:</strong> We choose <strong>"List of products"</strong>.</li>
+</ul>
+</li>
+<li>We click <strong>"Add"</strong> to add the field.</li>
+</ul>
+</li>
+<li>
+<p><strong>Options:</strong></p>
+<ul>
+<li>We enable <strong>"Storefronts access"</strong>.</li>
+<li>We disable:
+<ul>
+<li><strong>"Active-draft status"</strong></li>
+<li><strong>"Translations"</strong></li>
+<li><strong>"Publish entries as web pages"</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>We click <strong>"Save"</strong> to create the metaobject definition.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><img src="./img/send-recommendations-shopify-metaobject-creation.png" alt="Send recommendations - creating a shopify metaobject"></p>
+<p><strong>Using the HTTP Component to call Shopify Admin API</strong></p>
+<p>Assuming we have created the Shopify API token and the metaobject definition for storing recommendations, we're ready to send the recommendations to Shopify using the HTTP component.</p>
+<ol>
+<li>
+<p><strong>Adding the HTTP Enricher Node:</strong></p>
+<p>From the <strong>Creator Panel</strong>, we locate the <strong>http</strong> enricher component. We drag it into the scenario, placing it after the <strong>"Limit Recommendations"</strong> variable node.</p>
+</li>
+<li>
+<p><strong>Configuring the HTTP Node:</strong></p>
+<p>We open the HTTP node's properties:</p>
+<ul>
+<li>
+<p><strong>Name:</strong> We enter <strong>"Send Recommendations to Shopify"</strong>.</p>
+</li>
+<li>
+<p><strong>URL:</strong> We set it to:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>{your-store-address}/admin/api/graphql.json
+</code></pre><p><em>(Replace <code>{your-store-address}</code> with your actual Shopify store URL.)</em></p>
+</li>
+<li>
+<p><strong>HTTP Method:</strong> We select <strong>"POST"</strong>.</p>
+</li>
+<li>
+<p><strong>Headers:</strong></p>
+<p>We add a header:</p>
+<ul>
+<li><strong>Name:</strong> <code>X-Shopify-Access-Token</code></li>
+<li><strong>Value:</strong> The access token we obtained from Shopify earlier.</li>
+</ul>
+<pre data-role="codeBlock" data-info="spel" class="language-spel spel"><code>{
+  {
+    name: "X-Shopify-Access-Token",
+    value: "shpat_a827..."
+  }
+}
+</code></pre></li>
+<li>
+<p><strong>Body:</strong></p>
+<p>We need to construct a GraphQL mutation to create or update the metaobject with the user's recommendations. We use the <code>#CONV.toJsonString</code> function to convert the list of recommendation IDs to a JSON string.</p>
+<p><strong>Expression:</strong></p>
+<pre data-role="codeBlock" data-info="spel" class="language-spel spel"><code> {
+   query: "mutation UpsertMetaobject($metaobject: MetaobjectUpsertInput!, $handle: MetaobjectHandleInput!) { metaobjectUpsert(handle: $handle, metaobject: $metaobject) { metaobject { id } userErrors { field message code } } }",
+   variables: {
+     handle: {
+       handle: "customer-" + #anonymousUserId,
+       type: "nu_recommendation"
+     },
+     metaobject: {
+       fields: {
+         {
+           key: "products",
+           value: #CONV.toJsonString(#recommendationIds)
+         }
+       }
+     }
+   }
+ }
+</code></pre></li>
+<li>
+<p><strong>Output Variable Name:</strong> We set it to <code>sendRecommendationsResult</code>.</p>
+</li>
+<li>
+<p>We click <strong>"Apply"</strong> to save the configuration.</p>
+</li>
+</ul>
+<p><img src="./img/send-recommendations-http-enricher-properties.png" alt="Send recommendations - http component properties"></p>
+</li>
+<li>
+<p><strong>Updating the Sink Node:</strong></p>
+<p>To verify that our recommendations are being sent correctly, we update the sink node.</p>
+<ul>
+<li>
+<p>We open the <strong>"Log Recommendations"</strong> sink node.</p>
+</li>
+<li>
+<p>We modify the <strong>"Value"</strong> field to:</p>
+<pre data-role="codeBlock" data-info="spel" class="language-spel spel"><code>{
+   "userId": #anonymousUserId,
+   "product": #product,
+   "aggregatedProducts": #aggregatedProducts,
+   "recommendationsOutput": #recommendationsModelOutput,
+   "sendResult": #sendRecommendationsResult
+}
+</code></pre><p>This allows us to inspect the response from Shopify in our output.</p>
+</li>
+<li>
+<p>We click <strong>"Apply"</strong> to save the changes.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>Deploying and Testing the Scenario</strong></p>
+<p>With everything set up, we proceed to deploy and test our scenario. We save the scenario by clicking <strong>"Save"</strong>, and then deploy it by clicking <strong>"Deploy"</strong>.</p>
+<p>To test the scenario after integrating the recommendations back into Shopify, we follow the same testing procedure outlined in the <strong>Deploying and Testing the Scenario</strong> section. However, this time, we focus on inspecting the <strong>sendResult</strong> field in the <strong>Last Messages Preview</strong> of the "Log Recommendations" node. This field provides the response from Shopify’s API, allowing us to verify that the recommendations are being sent successfully and the API is processing the requests correctly.</p>
+</details>
+<br>
+<p><img src="./img/send-recommendations-whole-scenario.png" alt="Send recommendations - final version of scenario"></p>
+<blockquote>
+<p><strong><em>NOTE:</em></strong> &gt;<br>
+<a href="https://github.com/TouK/recommendations-showcase/blob/master/recommendations-scenario/shopify-realtime-recommendations-scenario.json">Here</a> is the exported scenario we created throughout this tutorial. If you encountered any issues or your own scenario isn’t running as intended, you can simply import this exported scenario into Nussknacker and compare with yours.</p>
+</blockquote>
+<h3 id="rendering-recommendations-in-the-shopify-store">Rendering Recommendations in the Shopify Store </h3>
+<p>The final step in our journey is to display personalized recommendations directly within the Shopify storefront. By injecting custom JavaScript into a Liquid template of the Shopify theme, we can dynamically fetch and render recommendations using Shopify's Storefront API.</p>
+<p>This approach is chosen for its simplicity, making it ideal for showcasing the integration. While it introduces a small delay due to Shopify's metastore refresh, this lag is entirely on Shopify's side and not related to Nussknacker's real-time processing capabilities.</p>
+<p>For production use cases, alternative methods or platforms might be preferred for storing and fetching recommendations to minimize delay. However, for the purposes of this demonstration, this method effectively highlights how Nussknacker can integrate real-time machine learning insights with Shopify to deliver personalized user experiences.</p>
+<details>
+   <summary>Expand for detailed instructions on how to do this</summary>
+<p><strong>Creating a Storefront API Token</strong></p>
+<p>To access the stored recommendations, we need to interact with the Shopify Storefront API. Since our recommendations are stored per <code>duid</code> (an identifier of an anonymous user), there's no risk of information leakage, and we can safely expose them publicly.</p>
+<p>Here's how we generate the necessary token:</p>
+<ol>
+<li>
+<p><strong>Access the Shopify Admin Console:</strong></p>
+<p>We log into our Shopify admin panel and navigate to <strong>"Apps and sales channels"</strong> from the left-hand menu.</p>
+</li>
+<li>
+<p><strong>Create a New App:</strong></p>
+<p>At the bottom of the page, we click on <strong>"Develop apps"</strong>. On the <strong>"Develop apps"</strong> page, we select <strong>"Create an<br>
+app"</strong>.</p>
+</li>
+<li>
+<p><strong>Configure the App:</strong></p>
+<ul>
+<li><strong>App Name:</strong> We enter <strong>"shopify_theme_fetch_recommendations"</strong>.</li>
+<li>We click <strong>"Create app"</strong> to proceed.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Storefront API Permissions:</strong></p>
+<p>In the app's page, we click on <strong>"Configure Storefront API scopes"</strong>. We select the following scopes: <code>unauthenticated_read_metaobjects</code>, <code>unauthenticated_read_product_listings</code>. We then click <strong>"Save"</strong>.</p>
+</li>
+<li>
+<p><strong>Install the App and Retrieve the Token:</strong></p>
+<p>In the <strong>"API credentials"</strong> tab, we generate an access token by clicking <strong>"Install app"</strong> in the <strong>"Access token"</strong> section. After the token is generated, we copy it and save it securely for later use.</p>
+<p><img src="./img/fetch-recommendations-storefront-token-creation.png" alt="Fetch recommendations - Storefront token creation"></p>
+</li>
+</ol>
+<p><strong>Injecting Custom JavaScript into the Shopify Theme</strong></p>
+<p>With the token ready, we proceed to inject custom JavaScript code into our Shopify theme to fetch and display the recommendations.</p>
+<ol>
+<li>
+<p><strong>Access the Theme Editor:</strong></p>
+<p>From the Shopify admin panel, we navigate to <strong>"Sales channels"</strong>, and select <strong>"Themes"</strong> from <strong>"Online Store"</strong> section.</p>
+</li>
+<li>
+<p><strong>Customize the Current Theme:</strong></p>
+<p>Our current theme is <strong>"Dawn"</strong>. We click on <strong>"Customize"</strong> to open the theme editor.</p>
+</li>
+<li>
+<p><strong>Edit the Theme Code:</strong></p>
+<p>In the theme editor, we click on the three dots in the top-left corner and select <strong>"Edit code"</strong> from the drop-down menu.</p>
+<p><img src="./img/fetch-recommendations-edit-theme-code.png" alt="Fetch recommendations - edit Shopify theme code"></p>
+</li>
+<li>
+<p><strong>Locate the <code>main-product.liquid</code> File:</strong></p>
+<p>In the file explorer on the left, we navigate to the <strong>"Sections"</strong> folder and find the <strong><code>main-product.liquid</code></strong> file.</p>
+</li>
+<li>
+<p><strong>Add Custom JavaScript Code:</strong></p>
+<p>At the end of the <strong><code>main-product.liquid</code></strong> file, we add custom JavaScript code. This code extracts the <code>duid</code> value from the cookie, uses the Shopify Storefront API to fetch recommendations from the metaobject, and renders them in the <strong><code>recommendations-section</code></strong> HTML div. It refreshes the recommendations every second. You can find the code in <a href="https://github.com/TouK/recommendations-showcase/blob/master/recommendations-scenario/snippets/shipify-theme-customizations/fetch-recommendations.js">our Github repository</a>.</p>
+<p><em>Note:</em> Remember to replace <code>{YOUR-SHOP-ADDRESS}</code> with your actual store address and <code>{USE-nussknacker_fetch_recommendations-HERE}</code> with the token generated in the previous section.</p>
+</li>
+<li>
+<p><strong>Add the Recommendations HTML Div:</strong></p>
+<p>We search for the text <strong><code>product-media-modal</code></strong> within the <strong><code>main-product.liquid</code></strong> file. Below that section, we add the HTML div where the recommendations will be rendered. We click <strong>"Save"</strong> to save our changes. You can find the code in <a href="https://github.com/TouK/recommendations-showcase/blob/master/recommendations-scenario/snippets/shipify-theme-customizations/fetch-recommendations.html">our Github repository</a>.</p>
+<p><img src="./img/fetch-recommendations-recommendation-div.png" alt="Fetch recommendations - add recommendations div"></p>
+</li>
+<li>
+<p><strong>Add Custom CSS Styles:</strong></p>
+<p>Next, we need to style the recommendations section. We locate the <strong><code>base.css</code></strong> file in the <strong>"Assets"</strong> folder. At the end of the <strong><code>base.css</code></strong> file, we add custom CSS code. We click <strong>"Save"</strong> to apply the changes. You can find the code in <a href="https://github.com/TouK/recommendations-showcase/blob/master/recommendations-scenario/snippets/shipify-theme-customizations/fetch-recommendations.css">our Github repository</a>.</p>
+</li>
+<li>
+<p><strong>Save and Test:</strong></p>
+<p>With all the changes saved, we navigate to our Shopify store to test the recommendations feature.</p>
+</li>
+</ol>
+<p><strong>Testing the Implementation</strong></p>
+<p>We visit our Shopify store and browse several products. It might take about <strong>20 seconds</strong> before the first recommendations appear. While Nussknacker processes events almost instantly, Shopify's metastore refresh can introduce some delay. This is important to keep in mind when testing.</p>
+<p><img src="./img/fetch-recommendations-grafana.png" alt="Fetch recommendations - grafana"></p>
+</details>
+<br>
+<p><img src="./img/fetch-recommendations-shopify-store.png" alt="Fetch recommendations - Shopify store"></p>
+<h2 id="benefits-of-an-integrated-streaming-solution">Benefits of an Integrated Streaming Solution </h2>
+<p>Nussknacker empowers businesses to enhance e-commerce with real-time data processing and machine learning. By integrating easily with tools like Snowplow and MLflow, it offers a seamless way to handle complex data streams and deliver actionable insights.</p>
+<p><strong>Seamless Integration with Clickstream Data</strong></p>
+<p>Nussknacker captures and processes clickstream data from Snowplow, simplifying data collection and enabling businesses to focus on insights instead of infrastructure.</p>
+<p><strong>Real-Time Machine Learning</strong></p>
+<p>By allowing the integration of pre-trained models from platforms like Databricks, Nussknacker makes it simple to incorporate externally trained and managed models, enabling instant predictions and real-time personalization.</p>
+<p><strong>Flexible and Intuitive</strong></p>
+<p>Robust tools for data manipulation and a low-code interface allow businesses to adapt scenarios quickly, focusing on strategy rather than technical details.</p>
+<p><strong>Real-Time Recommendations</strong></p>
+<p>Nussknacker enables instant, personalized recommendations, improving customer engagement and driving conversions.</p>
+<h2 id="conclusion-transforming-e-commerce-with-real-time-streaming-and-ml">Conclusion: Transforming E-commerce with Real-Time Streaming and ML </h2>
+<p>Real-time data processing and machine learning are now essential for e-commerce success. Nussknacker simplifies this integration, enabling businesses to:</p>
+<ul>
+<li><strong>Capture Insights Seamlessly:</strong> Easily process user interactions using Snowplow.</li>
+<li><strong>Deliver Instant Predictions:</strong> Use real-time ML for personalization without complex infrastructure.</li>
+<li><strong>Adapt Quickly:</strong> Modify and scale scenarios to meet business needs.</li>
+</ul>
+<p>With Nussknacker, businesses can act on data instantly, reduce development complexity, and enhance customer experiences. It provides a powerful foundation for integrating real-time streaming and machine learning into modern e-commerce platforms.</p>
+<hr>
+<p><em>Thank you for reading! We hope this inspires you to explore Nussknacker for your real-time data processing and machine learning needs. Feel free to reach out with questions or for support.</em></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
